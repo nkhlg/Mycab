@@ -65,7 +65,7 @@ color: black;
     <nav class="navbar" style="border-radius:0%;border:none;background-color: black; color: white;">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="home.html">Mycab</a>
+            <a class="navbar-brand" href="home.html" style="box-shadow: none;color:white;">Mycab</a>
           </div>
           <ul class="nav navbar-nav out">
             
@@ -74,11 +74,11 @@ color: black;
           </ul>
         </div>
       </nav>
-<br><br><br>
 
-<div class="container" style="background-color: white;width:30%;height: 420px; border-radius: 20px ;padding-left: 50px;padding-right: 50px;">
+
+<div class="container" style="background-color: white;width:30%;height: 560px; border-radius: 20px ;padding-left: 50px;padding-right: 50px;">
     <h2><b>Register here!</b></h2>
-<form action="booking.html" id="lf">
+<form action="booking.html" id="lf" oninput='cps.setCustomValidity(cps.value != ps.value ? "Passwords do not match." : "")'>
   <div class="form-group">
     <label for="firstname">First name:</label>
     <input type="text" class="form-control" id="fn" placeholder="Enter first name" name="firstname" required>
@@ -95,6 +95,14 @@ color: black;
     <label for="phone">Phone:</label>
     <input type="text" class="form-control" id="ph" placeholder="Enter phone" name="phone" required>
   </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="ps" placeholder="Enter password" name="password" required>
+  </div>
+  <div class="form-group">
+    <label for="confirmpassword">Confirm password:</label>
+    <input type="password" class="form-control" id="cps" placeholder="Confirm password" name="confirmpassword" required>
+  </div>
  
  
   <button type="submit" class="btn btn-default" id="btnsub" style="color:white;background-color:black ;">Register</button>
@@ -107,10 +115,12 @@ var firstname=document.forms['lf']['fn'];
 var secondname=document.forms['lf']['sn'];
 var email=document.forms['lf']['em'];
 var phone=document.forms['lf']['ph'];
+var password=document.forms['lf']['ps'];
+var confirmpassword=document.forms['lf']['cps'];
 
 document.querySelectorAll('#lf input').forEach(e => {
     e.addEventListener('keyup',function(event){
-        if(!firstname.validity.valid || !secondname.validity.valid || !email.validity.valid || !phone.validity.valid){
+        if(!firstname.validity.valid || !secondname.validity.valid || !email.validity.valid || !phone.validity.valid || !password.validity.valid || !confirmpassword.validity.valid){
             btnsub.setAttribute('disabled',true)
 
 

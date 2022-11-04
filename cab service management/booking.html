@@ -63,12 +63,12 @@
     <nav class="navbar" style="border-radius:0%;border:none;background-color: black; color: white;">
         <div class="container-fluid">
           <div class="navbar-header">
-            <a class="navbar-brand" href="home.html">Mycab</a>
+            <a class="navbar-brand" href="home.html" style="box-shadow: none;color:white;">Mycab</a>
           </div>
           <ul class="nav navbar-nav out">
             
            
-            
+          
           </ul>
         </div>
       </nav>
@@ -111,7 +111,7 @@ var time=document.forms['lf']['tm'];
 
 document.querySelectorAll('#lf input').forEach(e => {
     e.addEventListener('keyup',function(event){
-        if(!pickup.validity.valid || !destination.validity.valid || !date.validity.valid || !time.validity.valid){
+        if(!pickup.validity.valid || !destination.validity.valid || !date.validity.valid || !time.validity.valid  || pickup!=destination){
             btnsub.setAttribute('disabled',true)
 
 
