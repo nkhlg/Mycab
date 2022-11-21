@@ -64,6 +64,12 @@ else if(page=='/login' && req.method=='POST')
     })
 
 }
+// else if(page.startsWith("/static/"))
+// {
+// let fileName=page.replace("/static/","")
+// var file=fs.readFileSync("/statics/"+fileName)
+// res.end(file)
+// }
 else if(page=='/register' && req.method=='POST')
 {
     
