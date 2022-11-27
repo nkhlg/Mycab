@@ -129,10 +129,13 @@ module.exports.loginPost= (req, res, next)=>{
    db.findOne({
         where: {email: req.body.email,passwrd:req.body.pwd}
     }).then((user)=>{
-        
+        req.session.passenger_id=user.passenger_id
+        req.session.role=user.role
+        console.log(req.session.passenger_id)
+        console.log(req.session.role)
      
        if(user){
-           if(user.passenger_id==1)
+           if(req.session.role=='admin')
            {
         
         req.session.passenger_id = user.passenger_id
@@ -244,7 +247,7 @@ module.exports.driverAddPost=function(req, res, next){
 module.exports.driver=function(req, res, next){
     {
     
-        if(req.session.passenger_id!=1)
+        if(req.session.role!='admin')
         {
             res.send('No access')
         }

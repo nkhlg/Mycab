@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
         isAuthenticated: false,
         db: null
     }
-    if(req.url == "/api/login" || req.url == "/api/register"){
+    if(req.url == "/api/login" || req.url == "/api/register" || req.url=="/api/home"){
         return next();
     }
      
