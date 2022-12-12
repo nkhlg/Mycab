@@ -24,8 +24,8 @@ const Cab = db.sequelize.define('cab',{
         allowNull: false,
         onDelete:"cascade",
         references: {
-            model: 'drivers',
-            key: 'driver_id'
+            model: 'passengers',
+            key: 'passenger_id'
 
     }
     }

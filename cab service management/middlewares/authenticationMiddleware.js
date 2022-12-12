@@ -4,7 +4,7 @@ const db = require('../models/customer');
 module.exports = async (req, res, next) => {
     req.identity = {
         isAuthenticated: false,
-        db: null
+        db: null    
     }
     if(req.url == "/api/login" || req.url == "/api/register" || req.url=="/api/home"){
         return next();

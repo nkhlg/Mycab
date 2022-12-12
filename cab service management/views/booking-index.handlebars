@@ -80,27 +80,41 @@ body{
         </div>
       </nav>
       <div class="container">
+        <center><h1>My bookings</h1></center>
     <table class="table table-striped mt-4">
         <tr>
-            <th>Booking Id</th>
+            
             <th>Pick up</th>
             <th>Destination</th>
+            <th>Time</th>
+            <th>Date</th>
+            <th>Capacity</th>
+            <th>Cost</th>
+            <th>Booking status</th>
+            <th>Payment status</th>
             <th>Action</th>
         </tr>
         
         {{#each data}}
         <tr>
-            <td>{{this.dataValues.booking_id}}</td>
+          
             <td>{{this.dataValues.pick_up}}</td>
             <td>{{this.dataValues.destination}}</td>
+            <td>{{this.dataValues.time}}</td>
+            <td>{{this.dataValues.date}}</td>
+            <td>{{this.dataValues.capacity}}</td>
+            <td>{{this.dataValues.cost}}</td>
+            <td>{{this.dataValues.booking_status}}</td>
+            <td>{{this.dataValues.payment_status}}</td>
             <td>
-                <a href="/api/booking/update/{{this.dataValues.booking_id}}">Edit</a> |
-                <a href="/api/booking/delete/{{this.dataValues.booking_id}}" class="text-danger" onclick="return confirm('Are you sure you want to delete this')">Delete</a>
+              
+                <button style="background-color:black;" onClick=location.href="/api/booking/update/{{this.dataValues.booking_id}}" class="btn btn-primary">Change</button>
+                <button style="background-color:rgb(56, 53, 53);" onClick=location.href="/api/booking/delete/{{this.dataValues.booking_id}}" class="btn btn-primary">Cancel</button>
+                
             </td>
         </tr>
         {{/each}}
     </table>
-   
 </div>
       
 

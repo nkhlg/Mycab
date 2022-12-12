@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+{{#each data}}
+      <div class="container" id="body">
+      <center><h1>Mycab</h1></center>
+      <center><h3>Invoice</h3></center>
+    <table class="table table-striped mt-4">
+
+        <tr>
+            <th>Your booking Id :</th>
+            <td>{{this.booking_id}}</td>
+        </tr>
+        <tr>
+            <th>Your Pick up point :</th>
+            <td>{{this.pick_up}}</td>
+        </tr>
+        <tr>
+            <th>Your destination :</th>
+            <td>{{this.destination}}</td>
+        </tr>
+         <tr>
+            <th>Paid by:</th>
+            <td>{{this.first_name}} {{this.last_name}} </td>
+        </tr>
+        <tr>
+            <th>Generated on:</th>
+            <td id="datetime"></td>
+        </tr>
+        <tr>
+            <th>Amount paid:</th>
+            <td>INR {{this.cost}}/-</td>
+        </tr>
+        
+        </tr>
+    </table>
+    
+</div>
+{{/each}}
+<center><button style="color:white;background-color:black ;" class="btn btn-primary" id="download">Download</button></center>
+
+<script>
+  
+
+  document.getElementById("datetime").innerHTML = new Date().toLocaleString();</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    const button = document.getElementById('download');
+    function generatePDF() {
+        // Choose the element that your content will be rendered to.
+        const element = document.getElementById('body');
+        // Choose the element and save the PDF for your user.
+        html2pdf().from(element).save();
+    }
+    button.addEventListener('click', generatePDF);
+</script>
+    
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

@@ -30,10 +30,18 @@ CREATE TABLE `bookings` (
   `time` varchar(50) NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
+  `driver_id` int DEFAULT NULL,
+  `cost` varchar(50) DEFAULT NULL,
+  `payment_status` varchar(50) DEFAULT 'pending',
+  `booking_status` varchar(50) DEFAULT 'pending',
+  `date` date NOT NULL,
+  `capacity` varchar(10) NOT NULL,
   PRIMARY KEY (`booking_id`),
   KEY `passenger_id` (`passenger_id`),
-  CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`passenger_id`) REFERENCES `passengers` (`passenger_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `driver_id` (`driver_id`),
+  CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`passenger_id`) REFERENCES `passengers` (`passenger_id`) ON DELETE CASCADE,
+  CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`driver_id`) REFERENCES `passengers` (`passenger_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +50,7 @@ CREATE TABLE `bookings` (
 
 LOCK TABLES `bookings` WRITE;
 /*!40000 ALTER TABLE `bookings` DISABLE KEYS */;
-INSERT INTO `bookings` VALUES (11,2,'asdb','dsfrg','15:17','2022-11-26 09:42:35','2022-11-26 09:42:35');
+INSERT INTO `bookings` VALUES (2,15,'ktm','ern','09:29','2022-12-07 03:53:39','2022-12-08 11:44:43',3,'200','Confirm','Confirmed','2022-01-01','8'),(3,15,'kochi','wayanad','12:47','2022-12-07 07:11:29','2022-12-08 12:13:57',3,'200','Confirm','Confirmed','2022-01-02','8'),(4,15,'bgf','ytr','12:53','2022-12-08 07:17:11','2022-12-08 09:02:47',3,'200','Confirm','Confirmed','2022-01-01','12'),(5,15,'djjbv','xkvjb','12:34','2022-12-08 08:56:58','2022-12-08 08:56:58',NULL,NULL,'pending','pending','2022-01-01','5'),(6,15,'df','dfl','15:19','2022-12-08 09:43:48','2022-12-08 11:38:01',3,'8000','Confirm','Confirmed','2022-01-01','6'),(7,15,'kottayam logos junction','kakkanad junction','20:15','2022-12-08 14:40:23','2022-12-08 15:12:31',3,'3000','Confirm','Confirmed','2022-12-25','4'),(8,15,'kottatayam collectrate','kottayam logos','09:46','2022-12-09 04:10:22','2022-12-09 04:13:11',3,'500','Confirm','Confirmed','2022-12-31','4');
 /*!40000 ALTER TABLE `bookings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-27 17:00:31
+-- Dump completed on 2022-12-12 21:35:38

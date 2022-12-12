@@ -16,23 +16,29 @@ router.post('/booking/update/:booking_id',cc.bookingUpdatePost)
 router.get('/booking/delete/:booking_id',cc.bookingDelete)
 router.get('/user/booking',cc.showBooking)
 router.get('/user/logout',cc.logOut)
+router.get('/booking/payment/:booking_id',cc.payment)
+router.post('/booking/payment/:booking_id',cc.paymentConfirm)
+router.get('/user/booking/confirm',cc.confirmedUserBooking)
 
 
 
+router.get('/driver/booking',cc.showBookingToDriver)
+router.get('/driver/update',cc.driverUpdate)
+router.post('/driver/update',cc.driverUpdatePost)
+router.get('/cab/add',cc.cabAdd)
+router.post('/cab/add',cc.cabAddPost)
+router.get('/cab/update/',cc.cabUpdate)
+router.post('/cab/update',cc.cabUpdatePost)
+router.get('/driver/cost/:booking_id',cc.cost)
+router.post('/driver/cost/:booking_id',cc.costPost)
+router.get('/driver/booking/confirmed',cc.confirmedBooking)
+router.get('/user/delete',cc.userDelete)
 
-router.post('/driver/register',cc.driverPost)
-router.get('/driver/update/:driver_id',cc.driverUpdate)
-router.post('/driver/update/:driver_id',cc.driverUpdatePost)
-router.get('/driver/delete/:driver_id',cc.driverDelete)
-router.get('/driver/add',cc.driverAdd)
-router.post('/driver/add',cc.driverAddPost)
-router.get('/admin/driver',cc.driver)
-router.get('/cab/:driver_id',cc.cab)
-router.get('/cab/add/:driver_id',cc.cabAdd)
-router.post('/cab/add/:driver_id',cc.cabAddPost)
-router.get('/cab/update/:cab_id',cc.cabUpdate)
-router.post('/cab/update/:cab_id',cc.cabUpdatePost)
-router.get('/cab/delete/:cab_id',cc.cabDelete)
+
+router.get('/admin',cc.admin)
+router.get('/admin/show/drivers',cc.adminShowDrivers)
+router.get('/admin/show/passengers',cc.adminShowPassengers)
+
 
 
 

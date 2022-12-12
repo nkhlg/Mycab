@@ -106,7 +106,16 @@ color: black;
     <input type="text" class="form-control" id="ph" placeholder="Enter phone" name="phone" required>
   </div>
 
-  
+ 
+<div class="form-group">
+<label for="inputState">User type:</label>
+ <select id="role" name="role" class="form-control">
+<option selected>Passenger</option>
+<option>Driver</option>
+</select>
+</div>
+
+
 
   <div class="form-group">
     <label for="password">Password:</label>
@@ -121,6 +130,9 @@ color: black;
  
  
   <button type="submit" class="btn btn-default" id="btnsub" style="color:white;background-color:black ;">Register</button>
+  {{#if message}}
+                        <p class="text-danger">{{message}}</p>
+                    {{/if}}
 </form>
 </div>    
 

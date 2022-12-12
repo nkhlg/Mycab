@@ -11,47 +11,76 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <style>
+ 
   body{
-    /* animation-iteration-count: 1;
-    animation-fill-mode: forwards; */
+    
       background-image: url("https://upcdn.io/W142hXU/raw/2-36YE.jpg");
       background-size: 100vw ;
-      /* animation: fadeInAnimation ease 3s */
-  
+      
+     
+
   
 }
-
-/* @keyframes fadeInAnimation {
-  0% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-   } 
+.cssanimation, .cssanimation span {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+.link
+ {
+    margin-top:25px;  
+}
+.link #link1{
+  margin-left: 975px;
+  color:white;
+  text-decoration:none; 
+  border-radius:20px;
   
-} */
+padding:10px;
+
+margin-top:20px;
+color:rgb(255, 255, 255);
+text-decoration:none; 
+transition: 0.3s;
+
+}
+.link #link1:hover{
+background-color: rgba(189, 185, 185, 0.262);
 
 
-  a {
-    transition: color 1s ease-in-out , box-shadow color 1s ease-in-out;
-box-shadow: inset 0 0 0 0 white;
-color:white;
-border-radius: 30px;
-margin: 0 -.25rem;
-padding: 0 .25rem;
+}
+.link #link2{
  
+margin-left: 10px;
+border-radius:20px;
+padding:10px;
+background-color:white;
+margin-top:20px;
+color:black;
+text-decoration:none; 
+transition: 0.3s;
+}
+.link #link2:hover{
+background-color: rgba(250, 247, 247, 0.847);
 
 
 }
-a:hover {
-box-shadow: inset 100px 0 0 0 white;
-color:rgb(0, 0, 0);
 
 
 
+.cssanimation span { display: inline-block }
 
-
+.fadeInBottom { animation-name: fadeInBottom }
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to { opacity: 1 }
 }
+
+
+
+
 .navbar-brand:hover{
 color: black;
 }
@@ -64,17 +93,17 @@ color: black;
   
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/api/home" style="box-shadow: none;color:white;margin-top: 10px;">Mycab</a>
+      <a class="navbar-brand" href="/api/home" style="box-shadow: none;color:white;margin-top: 10px;margin-left:10px;">Mycab</a>
     </div>
-    <ul class="nav navbar-nav out">
-      
-      <li style="margin-left: 1020px;"><a href="/api/register" style="margin-top: 10px;">Sign up</a></li>
-      <li><a href="/api/login" style="margin-top: 10px;">Sign in</a></li>
-      
-    </ul>
+   
+     <div class="link">
+      <a id="link1" href="/api/register">Sign up</a>
+      <a id="link2" href="/api/login">Sign in</a>
+      </div>
+    
   </div>
 </nav>
-<div style="margin-left: 75px;margin-top:150px;">
+<div class="cssanimation sequence fadeInBottom" style="margin-left: 75px;margin-top:150px;">
 <h1 style="color:white;"><b><span style="font-size: 50pt;">Ride with us</span></b></h1>
 <br>
 <p style="color:white ; font-size: larger;"><b>Find a ride for every road with access in more than 10,000 cities worldwide.

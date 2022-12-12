@@ -29,21 +29,15 @@ CREATE TABLE `passengers` (
   `email` varchar(50) NOT NULL,
   `phone` varchar(50) NOT NULL,
   `passwrd` varchar(50) NOT NULL,
+  `role` varchar(50) NOT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
-  `role` varchar(50) DEFAULT 'user',
   PRIMARY KEY (`passenger_id`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `phone` (`phone`),
   UNIQUE KEY `email_2` (`email`),
-  UNIQUE KEY `phone_2` (`phone`),
-  UNIQUE KEY `email_3` (`email`),
-  UNIQUE KEY `phone_3` (`phone`),
-  UNIQUE KEY `email_4` (`email`),
-  UNIQUE KEY `phone_4` (`phone`),
-  UNIQUE KEY `email_5` (`email`),
-  UNIQUE KEY `phone_5` (`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `phone_2` (`phone`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,7 +46,7 @@ CREATE TABLE `passengers` (
 
 LOCK TABLES `passengers` WRITE;
 /*!40000 ALTER TABLE `passengers` DISABLE KEYS */;
-INSERT INTO `passengers` VALUES (1,'admin','admin','admin@gmail.com','1234567890','1234','2022-01-01 00:00:00','2022-01-01 00:00:00','admin'),(2,'nikhil','g','nik@gmail.com','9656016016','12345','2022-11-25 03:51:18','2022-11-27 08:53:57','user'),(3,'nik','g','email@com','1234566543','123','2022-11-27 10:53:26','2022-11-27 10:53:26','user');
+INSERT INTO `passengers` VALUES (1,'admin','admin','admin@gmail.com','9656016016','1234','Admin','2022-01-01 00:00:00','2022-01-01 00:00:00'),(3,'manu','manu','manu@gmail.com','6161616161','1234','Driver','2022-12-02 09:05:54','2022-12-02 09:05:54'),(15,'nikhil','g','nik.gokul@gmail.com','8848505534','1234','Passenger','2022-12-05 08:58:03','2022-12-05 08:58:03'),(16,'jones','jones','jones@gmail.com','8181818181','1234','Driver','2022-12-08 14:47:47','2022-12-08 14:47:47'),(17,'saurav','sunil','saurav@gmail.com','1313131313','1234','Passenger','2022-12-08 14:49:38','2022-12-08 14:49:38');
 /*!40000 ALTER TABLE `passengers` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -65,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-27 17:00:32
+-- Dump completed on 2022-12-12 21:35:39

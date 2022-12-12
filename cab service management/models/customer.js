@@ -4,7 +4,8 @@ const db = require('./db');
 const Customer = db.sequelize.define('passenger',{
     passenger_id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
+        primaryKey:true,
+        allowNull:false,
         autoIncrement: true
     },
 
@@ -32,10 +33,10 @@ const Customer = db.sequelize.define('passenger',{
 type: DataTypes.STRING(50),
 allowNull:false,
     },
-    role:
-    {
+
+    role:{
         type: DataTypes.STRING(50),
-        defaultValue:'user'
+        allowNull:false
     }
 });
 

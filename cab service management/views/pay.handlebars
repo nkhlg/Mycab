@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      body{
+    overflow-x: hidden;
+    background-image: url(/statics/images/img.jpg);
+background-size: 100vw;
+   
+}
+
+a {
+box-shadow: inset 0 0 0 0 white;
+color: #ffffff;
+margin: 0 -.25rem;
+padding: 0 .25rem;
+transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+a:hover {
+box-shadow: inset 100px 0 0 0 white;
+color: rgb(0, 0, 0);
+}
+body{
+    margin: 0;
+    padding: 0;
+ 
+    
+}
+
+.row{
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+}
+.col-sm-4{
+   
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    border-radius: 8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+
+}
+    </style>
+    
+</head>
+<body>
+   
+ <!--   <nav class="navbar" style="border-radius:0%;border:none;background-color: black; color: white;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="home.html" style="box-shadow: none;color:white;">Mycab</a>
+          </div>
+          <ul class="nav navbar-nav out">-->
+            <nav class="navbar" style="height: 75px;border-radius:0%;border:none;background-color: black; color: white;">
+  
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="/api/home" style="box-shadow: none;color:white;margin-top: 10px;">Mycab</a>
+                </div>
+                
+              </div>
+            </nav>
+            
+           
+          
+          </ul>
+        </div>
+      </nav>
+      <br><br><br>
+      {{#each data}}
+      <div class="container" id="body" style="display:none;">
+    <table class="table table-striped mt-4">
+        <tr>
+            <th>Your booking Id :</th>
+            <td>{{this.booking_id}}</td>
+        </tr>
+        <tr>
+            <th>Your Pick up point :</th>
+            <td>{{this.pick_up}}</td>
+        </tr>
+        <tr>
+            <th>Your destination :</th>
+            <td>{{this.destination}}</td>
+        </tr>
+        <tr>
+            <th>Amount :</th>
+            <td>{{this.cost}}</td>
+        </tr>
+        
+        </tr>
+    </table>
+    <button style="color:white;background-color:black ;" class="btn btn-primary" id="download">Download receipt</button>
+</div>
+{{/each}}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    const button = document.getElementById('download');
+    function generatePDF() {
+        // Choose the element that your content will be rendered to.
+        const element = document.getElementById('body');
+        // Choose the element and save the PDF for your user.
+        html2pdf().from(element).save();
+    }
+    button.addEventListener('click', generatePDF);
+</script>
+    
+
+      
+     
+      <div class="container" style="background-color: white;width:30%;height: 350px; border-radius: 20px ;padding-left: 50px;padding-right: 50px;">
+        <h2><b>Payment</b></h2>
+    <form method="post" id="lf" oninput='pk.setCustomValidity(pk.value == ds.value ? "Pickup and destination cannot be same." : "")'>
+      <div class="form-group">
+        <label for="pickup">Card number:</label>
+        <input type="text" class="form-control" id="pk" name="pickup" maxlength="16" minlength="16" required>
+      </div>
+      <div class="form-group">
+        <label for="destination">CVV:</label>
+        <input type="text" class="form-control" id="ds" name="destination" maxlength="3" minlength="3" required>
+      </div>
+     
+    
+     <div class="form-group">
+        <label for="month">Expiry:</label>
+        <input type="text" class="form-control" id="mn" placeholder="MM" name="mn"maxlength="2" minlength="2" required>
+      <input style="margin-top: 5px;" type="text" class="form-control" id="yr" placeholder="YY" name="yr"maxlength="2" minlength="2" required>
+      </div>
+     
+     
+      <button type="submit" class="btn btn-default" id="btnsub" style="color:white;background-color:black ;">Pay</button>
+      {{!--  --}}
+    </form>
+    </div>  
+     
+        
+
+
+   
+    
+    <script>
+
+var pickup=document.forms['lf']['pk'];
+var destination=document.forms['lf']['ds'];
+
+var month=document.forms['lf']['mn'];
+var year=document.forms['lf']['yr'];
+
+document.querySelectorAll('#lf input').forEach(e => {
+    e.addEventListener('keyup',function(event){
+        if(!pickup.validity.valid || !destination.validity.valid || !month.validity.valid || !year.validity.valid){
+            btnsub.setAttribute('disabled',true)
+            download.setAttribute('disabled',true)
+
+
+    }
+    else{
+        btnsub.removeAttribute('disabled',true);
+        download.removeAttribute('disabled',true)
+    }
+})
+    
+});
+
+
+    </script>
+</body>
+</html>

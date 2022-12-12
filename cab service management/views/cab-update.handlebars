@@ -86,11 +86,11 @@ body{
     <form method="post" id="lf">
       <div class="form-group">
         <label for="cabnumber">Cab number:</label>
-        <input type="text" class="form-control" id="pk" placeholder="Cab number" name="cabnumber" required>
+        <input type="text" class="form-control" id="pk" value={{data.dataValues.cab_number}} name="cabnumber" required>
       </div>
       <div class="form-group">
         <label for="cabcapacity">Cab capacity:</label>
-        <input type="text" class="form-control" id="ds" placeholder="Cab capacity" name="cabcapacity" required>
+        <input type="text" class="form-control" id="ds" value={{data.dataValues.cab_capacity}} name="cabcapacity" required>
       </div>
       <button type="submit" class="btn btn-default" id="btnsub" style="color:white;background-color:black ;">Update cab</button>
     </form>

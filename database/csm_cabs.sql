@@ -33,8 +33,8 @@ CREATE TABLE `cabs` (
   UNIQUE KEY `cab_number` (`cab_number`),
   UNIQUE KEY `cab_number_2` (`cab_number`),
   KEY `driver_id` (`driver_id`),
-  CONSTRAINT `cabs_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`driver_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `cabs_ibfk_1` FOREIGN KEY (`driver_id`) REFERENCES `passengers` (`passenger_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `cabs` (
 
 LOCK TABLES `cabs` WRITE;
 /*!40000 ALTER TABLE `cabs` DISABLE KEYS */;
-INSERT INTO `cabs` VALUES (2,'1234567',23,6,'2022-11-27 05:53:42','2022-11-27 05:53:42');
+INSERT INTO `cabs` VALUES (2,'kl-01-1111',12,3,'2022-12-02 09:06:10','2022-12-02 09:06:10'),(3,'kl-15-6968',4,16,'2022-12-08 14:48:02','2022-12-08 14:48:02');
 /*!40000 ALTER TABLE `cabs` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-27 17:00:32
+-- Dump completed on 2022-12-12 21:35:39
